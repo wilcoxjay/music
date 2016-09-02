@@ -1,10 +1,11 @@
 \version "2.18.2"
 #(set-default-paper-size "letter")
 \header {
-  title = "Long did I toil"
+  title = "Long did I toil, and knew no earthly rest"
   subtitle = \markup { \medium \italic { Oxenbridge } }
   poet = "Henry Francis Lyte"
   composer = "Martin Shaw"
+  arranger = "arr. GWB"
 
   tagline = ""
 }
@@ -47,19 +48,19 @@ global = {
   % for midi only
   % \tempo 4 = 100
   \override Staff.TimeSignature #'stencil = ##f
-  \verseSpace \break
-  \verseSpace \break
-  \verseSpace \break
+  \verseSpace \break \noPageBreak
+  \verseSpace \pageBreak
+  \verseSpace \pageBreak
   \verseSpace \break
 }
 
 melodyButOne = {
-  f4 g   | a2 g4   | bes2 a4 | g f g2 \bar "||"
-  g4 a bes | c2 bes4 | a2 g4   | f a g2 \bar "||"
-  c,4 f g  | a2 g4   | bes2 a4 | g f g2 \bar "||"
-  g4 a bes | c2 bes4 | a2 g4   | f a g2 \bar "||"
-  bes4 a g | a2 f4   | d2 c4   | d f g2 \bar "||"
-  bes4 a g | a2 f4   | d2 c4   | d g f2 \bar "||"
+  f4 g   | a2 g4   | bes2 a4 | g f g2 \bar "||"   \noPageBreak
+  g4 a bes | c2 bes4 | a2 g4   | f a g2 \bar "||" \noPageBreak
+  c,4 f g  | a2 g4   | bes2 a4 | g f g2 \bar "||" \noPageBreak
+  g4 a bes | c2 bes4 | a2 g4   | f a g2 \bar "||" \noPageBreak
+  bes4 a g | a2 f4   | d2 c4   | d f g2 \bar "||" \noPageBreak
+  bes4 a g | a2 f4   | d2 c4   | d g f2 \bar "||" 
 }
 
 UnisonNotes = \relative c {
@@ -71,12 +72,12 @@ UnisonNotes = \relative c {
 }
 
 UnisonLyrics = \lyricmode {
-  "1. Long" did I | toil and | know no | earth -- ly rest, |
-  far did I | roam and | found no | cer -- tain home |
+  "1. Long" did I | toil, and | knew no | earth -- ly rest, |
+  far did I | rove, and | found no | cer -- tain home; |
   at last I | sought them | in his | shelt'r -- ing breast, |
-  who opens his | arms and | bids the | wear -- y come |
-  with him I | found a | home a | rest di -- vine, |
-  and since then | I am | his and | he is mine.
+  who opes his | arms, and | bids the | wear -- y come: |
+  with him I | found a | home, a | rest di -- vine, |
+  and since then | I am | his, and | he is mine.
 }
 
 firstAltoFBphraseOneSuffix = {
@@ -84,7 +85,7 @@ firstAltoFBphraseOneSuffix = {
 }
 
 firstAltoFBphraseOneSuffixBreath = {
-  f4 e | f2 \breathe g4 | f4.( g8) a4 | bes a bes2
+  f4 e | f2 g4 | f4.( g8) a4 | bes a bes2
 }
 
 
@@ -98,8 +99,8 @@ verseThreeMelodyButOne = {
   g4 a bes | c2 bes4 | a4 g2   | f4 a g2 \bar "||"
   c,4 f g  | a2 g4   | bes2 a4 | g f g2  \bar "||"
   g4 a bes | c2 bes4 | a2 g4   | f a g2  \bar "||"
-  bes4 a g | a2 \breathe f4   | d4 c2 \breathe  | d4 f g2 \bar "||"
-  bes4 a g | a2 f4   | d2 \breathe c4   | d g f2  \bar "||"
+  bes4 a g | a2  f4   | d4 c2   | d4 f g2 \bar "||"
+  bes4 a g | a2 f4   | d2  c4   | d g f2  \bar "||"
 }
 
 
@@ -111,15 +112,14 @@ firstAltoMusic = \relative c' {
   \firstAltoFBphraseTwo |
   c4 \firstAltoFBphraseOneSuffixBreath |
   \firstAltoFBphraseTwo |
-  f4 f e | f2 \breathe a4 | f2 \breathe f4 | f f e2 |
+  f4 f e | f2  a4 | f2  f4 | f f e2 |
   f4 f e | f2 a4 | f2 f4 | bes4 g a2 |
 
   \relative c' { c4^\f \verseThreeMelodyButOne }
 
   \oneVoice
   \relative c' {
-    c4^\markup { \dynamic pp { Altos} \italic {8vb ad lib.} }
-    f4 g   | a2 g4   | bes2 a4 | g f g2  \bar "||"
+    c4^\pp f4 g   | a2 g4   | bes2 a4 | g f g2 \bar "||"
     g4 a bes | c2 bes4 | a2 g4   | f4 a g2 \bar "||"
     c,4^\markup{\italic {cresc. poco a poco}} f g  | a2 g4   | bes2 a4 | g f \slurDashed g2(  \bar "||"
     g4) a bes | c2 bes4 | a4 g2   | f4 a g2  \bar "||"
@@ -127,11 +127,13 @@ firstAltoMusic = \relative c' {
 
   \voiceOne
   \relative c'' {
-    << { d4^\markup{Altos div. \italic { à } 3} c c   | a2 f4 | f2 f4 | f f g2 \bar "||" }
-       { bes4 a g | f2 s4 | d2 c4 | d d e2 } >>
+    << { d4 -\tweak self-alignment-X #-0.7 ^\markup{\dynamic f Altos \italic { div. à } 3} c c   | a2 f4 | f2 f4 | f f g2 \bar "||" }
+       { bes4 a g | f2 s4 | d2 c4 | d d e2 }
+       {  f4 f e | c2 c4 | bes2 a4 | bes a c2 | } >>
 
-    << { d'4 c c   | a2 f4 | f2 f4 | f g a2 \bar "|."  }
-       { bes4 a g | f2 s4 | d2 c4 | d e f2 } >>
+    << { d'4 c c   | a2 f4 | f2 f4 | f g f2 \bar "|."  }
+       { bes4 a g | f2 s4 | d2 c4 | d e s2 } 
+       { f4 f e | c2 c4 bes2 a4 | bes c c2 } >>
   }
 }
 
@@ -176,14 +178,7 @@ secondAltoMusic = \relative c' {
   d4 c c | c2 c4 | bes2 c4 | d e f2 |
 
   \oneVoice
-  \phraseSpace
-  \phraseSpace
-  \phraseSpace
-  \phraseSpace
-
-  \voiceTwo
-  f4 f e | c2 c4 | bes2 a4 | bes a c2 |
-  f4 f e | c2 c4 bes2 a4 | bes c c2 |
+  \verseSpace
 }
 
 tenorMusic = \relative c {
@@ -196,8 +191,8 @@ tenorMusic = \relative c {
   c4 c d | c2 g4 | c4 c2 | c4 c c2 |
   c,4 f e | f2 g4 | f4.( g8) a4 | bes a bes2 |
   c4 c d | c2 g4 | c2 c4 | c4 c c2 |
-  d4 c c | c2 \breathe a4 | f4 f2 \breathe | f4 f e2 |
-  f4 f e | f2 a4 | f2 \breathe f4 | bes4 g a2 |
+  d4 c c | c2  a4 | f4 f2  | f4 f e2 |
+  f4 f e | f2 a4 | f2  f4 | bes4 g a2 |
 
   \oneVoice
   \relative c { c4_\pp
@@ -219,7 +214,7 @@ bassFBphraseOneSuffix = {
 }
 
 bassFBphraseOneSuffixBreath = {
-  \relative c { a4 c | f2 \breathe e4 | d4.( e8) f4 | g4 d g2 }
+  \relative c { a4 c | f2  e4 | d4.( e8) f4 | g4 d g2 }
 }
 
 
@@ -247,7 +242,7 @@ bassMusic = \relative c {
   \bassFBphraseTwo |
   c'4 \bassFBphraseOneSuffixBreath |
   \bassFBphraseTwo |
-  bes4 f' c | f2 \breathe f4 | bes,2 \breathe a4 | bes d c2 |
+  bes4 f' c | f2  f4 | bes,2  a4 | bes d c2 |
   bes4 f' c | f2 f,4 | bes2 a4 | bes c f,2 |
 
   \once \override DynamicText.self-alignment-X = #4
@@ -256,7 +251,11 @@ bassMusic = \relative c {
   \bassHphraseTwo |
   c'4 \bassHphraseOneSuffix |
   \bassHphraseFour |
-  bes4 f' c | f2 f4 | bes,4 a2 | bes4 d c2 |
+
+  bes4
+  %-\tweak Y-offset #-15
+  %_\markup{\huge { Verse 4 on next page. }} 
+  f' c | f2 f4 | bes,4 a2 | bes4 d c2 |
   bes4 f' c | f2 f,4 | bes2 a4 | bes c f,2 |
 
   \oneVoice
@@ -268,7 +267,7 @@ bassMusic = \relative c {
   \voiceTwo
   \relative c {
     << { f4 a g }
-       { bes,4 f' c } >> |
+       { bes,4 -\tweak self-alignment-X #3.5 _\f f' c } >> |
     f2 f4 |
     << { d2 c4 | d }
        { bes2 a4 | bes } >>
@@ -289,7 +288,7 @@ rhythm = \relative c'' {
   \verseRest
   c4 c c | c2 c4 | c2 c4 | c c c2 |
   c4 c c | c2 c4 | c2 c4 | c c c2 |
-  c4 c c | c2 c4 | c2 c4 | c c c2 |
+  c4 c c | c2 c4 | c4.( c8) c4 | c c c2 |
   c4 c c | c2 c4 | c2 c4 | c c c2 |
   c4 c c | c2 c4 | c2 c4 | c c c2 |
   c4 c c | c2 c4 | c2 c4 | c c c2 |
@@ -310,26 +309,26 @@ rhythm = \relative c'' {
 }
 
 theWords = \lyricmode {
-  "2. The" good I | have is | from his | stores sup -- plied |
-  the ill is | on -- ly | what he | deems the best |
-  he for my | friend, I'm | rich with | nought be -- side |
-  and poor with -- | out him | though of | all pos -- sest |
-  chan -- ges may | come, I | take, or | I re -- sign |
-  con -- tent while | I am | his and | he is mine |
+  "2. The" good I | have is | from his | stores sup -- plied, |
+  the ill is | on -- ly | what he | deems the best; | \noPageBreak
+  he for my | friend, I'm | rich with | nought be -- side, |
+  and poor with -- | out him | though of | all pos -- ses'd: |\noPageBreak
+  chan -- ges may | come, I | take, or | I re -- sign, |
+  con -- tent, while | I am | his, while | he is mine. |
 
-  "3. What" e'er may | change, in | him no | change is seen |
-  a glo -- rious | sun that | wanes not | nor de -- clines |
-  a -- bove the | clouds and | storms he | walks ser -- ene |
-  and on his | peo -- ples | in -- ward | dark -- ness shines |
-  All may de -- | part, I | fret not, | nor re -- pine |
-  while I my | sav -- iour's | am, and | he is mine |
+  "3. What" -- e'er may | change, in | him no | change is seen, |
+  a glo -- rious | Sun that | wanes not | nor de -- clines, |
+  a -- bove the | clouds and | storms he | walks se -- rene, |
+  and on his | peo -- ple's | in -- ward | dark -- ness shines: |
+  all may de -- | part, I | fret not, | nor re -- pine, |
+  while I my | Sav -- ior's | am, while | he is mine. |
 
-  "4. While" here, a -- | las! I | know but | half his love |
-  but half per -- | ceive him | and but | half a -- dore |
+  "4. While" here, a -- | las! I | know but | half his love, |
+  but half dis -- | cern him, | and but | half a -- dore; |
   but when I | meet him | in the | realms a -- bove |
-  I hope to | love him | bet -- ter, | praise him more |
-  and feel, and | tell a -- | mid the | choir di -- vine |
-  now ful -- ly | I am | his and | he is mine.
+  I hope to | love him | bet -- ter, | praise him more, |
+  and feel, and | tell, a -- | mid the | choir di -- vine, |
+  how ful -- ly | I am | his, and | he is mine.
 
 }
 
@@ -364,18 +363,14 @@ theWords = \lyricmode {
       \RemoveEmptyStaves
       \override VerticalAxisGroup.remove-first = ##t
     }
-    %\context { % lyrics avoid barlines
-    %  \Lyrics
-    %  \consists "Bar_engraver"
-    %  \consists "Separating_line_group_engraver"
-    %  \hide BarLine
-    %}
   }
 
   % \midi { }
 }
 \paper {
   % print page numbers centered at the bottom
+  system-system-spacing = #'((basic-distance . 0.1) (padding . 8))
+  ragged-bottom = ##t
   print-page-number = ##t
   print-first-page-number = ##t
   oddHeaderMarkup = \markup \fill-line { " " }
@@ -387,5 +382,4 @@ theWords = \lyricmode {
     \fontsize #1 \on-the-fly #print-page-number-check-first
     \fromproperty #'page:page-number-string } }
 }
-
 }

@@ -1,11 +1,11 @@
 \version "2.18.2"
 #(set-default-paper-size "letter")
 \header {
-  title = "Onward Christian Soldiers"
+  title = "Onward, Christian Soldiers"
   subtitle = \markup { \medium \italic { Prince Rupert } }
   poet = "Sabine Baring-Gould"
-  composer = "Gustav Holst"
-  arranger = "arr. Gregory W. Bloch"
+  composer = "Gustav Holst, based on 17th-century marches"
+  arranger = "arr. GWB"
 
   tagline = ""
 }
@@ -46,7 +46,7 @@ UnisonNotesOne = \relative c {
   f4 c f g | aes4.( bes8) aes2 | g4 f f e | f1 |
   g4. f8 \once \hide Slur g( aes) bes4 | ees,4.( f8) ees2 | aes4 aes \once \hide Slur bes8( c) bes4 | aes 1 |
   g4. f8 \once \hide Slur g( aes) bes4 | ees,2 aes | g4 f f e | f1 |
-  aes4 ees c ees | aes2 ees |
+  aes4^"Refrain" ees c ees | aes2 ees |
   \voiceOne
   aes2^\markup {\halign #1 \italic "div." } bes | \once \hide Slur c8( des) c4 bes2 |
   aes4 ees c ees | aes2 ees |
@@ -69,10 +69,11 @@ UnisonLyrics = \lyricmode {
   \override LyricText.self-alignment-X = #LEFT
 
   \once \override LyricText.self-alignment-X = #0.5
-  "1. On" -- ward, Christ -- ian | sol -- diers, | march -- ing as to | war, |
-  with the cross of | Je -- sus | go -- ing on be -- | fore! |
-  Christ, the ro -- yal | Mas -- ter, | leads a -- gainst the | foe; |
-  for -- ward in -- to | bat -- tle, | see, his ban -- ners | go.
+  "1. On" -- ward, Christ -- ian | sol -- diers! | march -- ing as to | war, |
+  with the cross of | Je -- sus | go -- ing on be -- | fore. |
+  Christ the ro -- yal | Mas -- ter | leads a -- gainst the | foe; |
+  for -- ward in -- to | bat -- tle, | see, his ban -- ners | go:
+
   On -- ward, Christ -- ian | sol -- diers, | march -- ing | as to war, |
   with the cross of | Je -- sus | go -- ing on be -- | fore! |
 }
@@ -81,18 +82,18 @@ firstAltoMusic =
   \relative c' {
     \voiceOne
     \verseRest
-    f4^\markup { \dynamic p \italic "fauxbourdon" } c f e | f4.( g8) aes4( c) | bes aes g g | f1 |
+    f4^\markup { \italic "fauxbourdon" } c f e | f4.( g8) aes4( c) | bes aes g g | f1 |
     g4 aes c bes | aes2 ees4( f) | g aes g g | f1 |
     bes4. aes8 \once \hide Slur bes( aes) g4 | g4.( aes8) g2 | aes4 aes g g | aes1 |
     bes4. aes8 \once \hide Slur bes( aes) g4 | g2. c4 | bes aes g g | f1 |
-    c1~ | c4 bes c des | ees( des) f( ees) | g f aes( g) |
-    aes2. aes4 | c bes aes g | f f f4. aes8 | aes1 \bar "||"\break
+    c1~^"Refrain" | c4 bes c des | ees( des) f( ees) | g f aes( g) |
+    aes2. aes4 | c bes aes g | f f f4. aes8 | aes1 \bar "||"\pageBreak
 
-    f4^\markup{ \dynamic f \italic { non troppo }} c f g | aes4. bes8 aes2 | g4 f f e | f1 |
-    f4 c f g | aes4. bes8 aes2 | g4 f f e | f1 |
+    f4^\markup{ \dynamic f \italic { non troppo }} c f g | aes4.( bes8) aes2 | g4 f f e | f1 |
+    f4 c f g | aes4.( bes8) aes2 | g4 f f e! | f1 |
     g4. f8 \once \hide Slur g( aes) bes4 | ees,4.( f8) ees2 | aes4 aes \once \hide Slur bes8( c) bes4 | aes1 |
-    g4. f8 \once \hide Slur g( aes) bes4 | ees,2 ees2 | g4 f f e | f1 |
-    aes4 ees c ees | aes2 ees | aes bes | \once \hide Slur c8( des) c4 bes2 |
+    g4. f8 \once \hide Slur g( aes) bes4 | ees,2 aes2 | g4 f f e | f1 |
+    aes4^"Refrain" ees c ees | aes2 ees | aes bes | \once \hide Slur c8( des) c4 bes2 |
     aes4 ees c ees | aes2 ees | \once \hide Slur aes8( bes) aes4 bes4. aes8 | aes1 \bar "|."
   }
 
@@ -120,18 +121,18 @@ firstAltoTopLyrics = \lyricmode {
   we are not di -- | vi -- ded, __ _
   one in faith and | hope, __ _ _ and
 
-  glo -- ry, laud, and | ho -- nor, |
+  glo -- ry, laud, and | ho -- nor |
   this through count -- less | ag -- es
 }
 
 secondAltoMusic = \relative c' {
   \voiceTwo
   \verseRest
-  f4 c c bes | c2 f4( e) | des des des c | c2( bes) |
+  f4 c c bes | c2 f4( ees) | des des des c | c2( bes) |
   des4 c ees des | c2 c4( d) | e c c c | aes1 |
   ees'2 ees | ees4 bes ees des | ees c ees ees | c1 |
-  ees2 ees | ees4 bes ees \once \hide Slur f8( ees) | des4 des c c | f1 |
-  aes,1~ | aes4 g aes bes | ees( des) f( ees) | g f ees2 |
+  ees2 ees | ees4 bes ees \once \hide Slur f8( ees) | des4 des c c | f,1 |
+  aes1~ | aes4 g aes bes | ees( des) f( ees) | g f des2 |
   c2. c4 | ees des c bes | c c des4. c8 | c1 |
 
   f4 c c bes | c2 f4( ees) | des des des c | c2( bes) |
@@ -139,21 +140,21 @@ secondAltoMusic = \relative c' {
   ees2 ees | ees4 bes ees des | ees4 c ees ees | ees1 |
   ees2 ees | ees4 bes ees \once \hide Slur f8( ees) | des4 des c c | f1 |
   aes4 ees c ees | aes2 ees2 | ees4( des) f( ees) | g f aes( g) |
-  aes4 ees c ees | aes2 ees2 | ees4 \once \hide Slur ees8( f) g4 ees | ees1 |
+  aes4 ees c ees | aes2 ees2 | ees4 \once \hide Slur ees8( f) g4. ees8 | ees1 |
 }
 
 tenorMusic = \relative c {
   \voiceOne
   \verseRest
 
-  f4^\markup {\halign #5 "T:" \dynamic mf} c f g | aes4.( bes8) aes2 | g4 f f e | f1 |
+  f4 c f g | aes4.( bes8) aes2 | g4 f f e | f1 |
   f4 c f g | aes4.( bes8) aes2 | g4 f f e | f1 |
   g4. f8 \once \hide Slur g8( aes) bes4 | ees,4.( f8) ees2 | aes4 aes \once \hide Slur bes8( c) bes4 | aes1 |
   g4. f8 \once \hide Slur g8( aes) bes4 | ees,2. aes4 | g4 f f e | f1 |
   aes4 ees c ees | aes2 ees | aes2 bes | \once \hide Slur c8( des) c4 bes2 |
   aes4 ees c ees | aes2 ees | \once \hide Slur aes8( bes) aes4 bes4. aes8 | aes1 |
 
-  f4 c f e | f4. g8 aes4( c) | bes aes g g | f1 |
+  f4 c f e | f4.( g8) aes4( c) | bes aes g g | f1 |
   g4 aes c bes | aes2 ees4( f) | g aes g g | aes1 |
   bes4. aes8 \once \hide Slur bes( aes) g4 | g2 g | aes4 aes g g | c1 |
   bes4. aes8 \once \hide Slur bes( aes) g4 | g2 c | bes4 aes g g | f1 |
@@ -185,7 +186,7 @@ tenorTopLyrics = \lyricmode {
   we are not di -- vi -- ded, __ _
   one in faith and | hope, __ _ _ and
 
-  glo -- ry, laud, and | ho -- nor, |
+  glo -- ry, laud, and | ho -- nor |
   this through count -- less | ag -- es
 }
 
@@ -193,7 +194,7 @@ tenorTopLyrics = \lyricmode {
 bassMusic = \relative c {
   \voiceTwo
   \verseRest
-  f4_\p c aes g | f2 f | g4 aes bes c | des1 |
+  f4 c aes g | f2 f | g4 aes bes c | des1 |
   bes4 c des es | aes,2 aes | c4 aes c c | f1 |
   ees2 ees | ees4 des c bes | c aes ees' ees | aes1 |
   ees2 ees | ees4 des c aes | bes bes c c | f1 |
@@ -235,7 +236,7 @@ bassBottomLyrics = \lyricmode {
   On -- ward, Christ -- ian sol -- diers,
   with the cross of Je -- sus
 
-  glo -- ry, | laud, and ho -- nor, |
+  glo -- ry, | laud, and ho -- nor |
   this through | count -- less ag -- es
 }
 
@@ -263,17 +264,17 @@ theWords = \lyricmode {
 
   \once \override LyricText.self-alignment-X = #CENTER
   "2. Like" a might -- y | ar -- my __ | moves the Church of | God; __ |
-  Bro -- thers, we are | march -- ing __ | where the saints have | trod; |
+  bro -- thers, we are | tread -- ing __ | where the saints have | trod; |
   we __ _ are __ _ not di -- vi -- ded, | all one bo -- dy | we,
-  one __ _ in __ _ | faith and hope, and | one in cha -- ri -- | ty. |
-  On -- ward, Christ -- ians, | march -- ing | as to war, |
+  one __ _ in __ _ | faith and hope, and | one in cha -- ri --  | ty: |
+  On -- ward, Christ -- ians, | march -- ing | as to war,  |
   with __ _ the cross of Je -- sus | go -- ing on be -- | fore! |
 
   \once \override LyricText.self-alignment-X = #0.5
-  "3. On" -- ward, then, ye | peo -- ple, | join our hap -- py | throng; _ |
+  "3. On" -- ward, then, ye | peo -- ple, | join our hap -- py | throng, _ |
   blend with ours your | voi -- ces | in the tri -- umph | song; |
-  glo -- _ ry, __ _ | laud, and ho -- nor, | un -- to Christ the | King; |
-  this __ _ through __ _ | count -- less ag -- es | men and an -- gels | sing. |
+  glo -- _ ry, __ _ | laud, and ho -- nor | un -- to Christ the | King; |
+  this __ _ through __ _ | count -- less ag -- es | men and an -- gels | sing: |
   On -- ward, Christ -- ian | sol -- diers, | march -- ing | as to war, |
   with the cross of | Je -- sus | go -- ing on be -- | fore! |
 }
@@ -341,7 +342,8 @@ theWords = \lyricmode {
 }
 \paper {
   % annotate-spacing = ##t
-
+ % system-system-spacing = #'((basic-distance . 0.1) (padding . 4))
+  ragged-bottom = ##f
  % print page numbers centered at the bottom
   print-page-number = ##t
   print-first-page-number = ##t
@@ -354,5 +356,4 @@ theWords = \lyricmode {
     \fontsize #1 \on-the-fly #print-page-number-check-first
     \fromproperty #'page:page-number-string } }
 }
-
 }
